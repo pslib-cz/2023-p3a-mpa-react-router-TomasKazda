@@ -1,0 +1,13 @@
+.title{
+    font-size: 3em;
+    margin-bottom: 2em;
+}
+
+footer {
+    background-color: var(--black);
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

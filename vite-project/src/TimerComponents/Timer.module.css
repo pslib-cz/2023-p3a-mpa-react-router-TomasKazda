@@ -57,12 +57,6 @@ progress::-moz-progress-bar {
   background-color: var(--black);
 }
 
-.timer__title{
-  font-size: 3em;
-  margin-bottom: 2em;
-}
-
-
 .timer__time{
   font-size: 3em;
 }
