@@ -1,8 +1,8 @@
 import styles from './Settings.module.css';
 import { useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faHourglassHalf, faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
-//import { useNavigate, Link } from 'react-router-dom';
+import { faGear, faCheck, faHourglassHalf, faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate, Link } from 'react-router-dom';
 
 export type SettingsProps = {
     setTestTime: (time: number) => void;
@@ -19,7 +19,7 @@ export const Settings:React.FC<SettingsProps> = ({setTestTime, setThresholdType,
     const minuteRef = useRef<HTMLInputElement>(null);
     const secondRef = useRef<HTMLInputElement>(null);
     const thresholdRef = useRef<HTMLInputElement>(null);
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const [thresholdType, setLocalThresholdType] = useState<'minutes' | 'percentage'>('minutes');
 
@@ -83,7 +83,7 @@ export const Settings:React.FC<SettingsProps> = ({setTestTime, setThresholdType,
           <button type="button" onClick={() => {
             setIsRunning(); 
             if (!isRunning) {
-              //navigate('/');
+              navigate('/');
             }
           }}>
             {isRunning ? <FontAwesomeIcon icon={faStop} /> : <FontAwesomeIcon icon={faPlay} />}
@@ -94,16 +94,24 @@ export const Settings:React.FC<SettingsProps> = ({setTestTime, setThresholdType,
         <button onClick={() => {
           setTestTime(300);
           setTotalTime(300);
+          if (!isRunning) {
+            setIsRunning();
+          }
+          navigate('/');
         }}><FontAwesomeIcon icon={faHourglassHalf} /> pětiminutovka</button>
 
         <button onClick={() => {
-          setTestTime(2400);
-          setTotalTime(2400);
+          setTestTime(45*60);
+          setTotalTime(45*60);
+          if (!isRunning) {
+            setIsRunning();
+          }
+          navigate('/');
         }}><FontAwesomeIcon icon={faHourglassHalf} /> hodinový test</button>
 
-        {/* <Link to="/" className="settings__button">{" "}
+        <Link to="/" className="settings__button">{" "}
           <FontAwesomeIcon icon={faGear} /> Back
-        </Link> */}
+        </Link>
       </div>
     )
   }

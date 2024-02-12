@@ -1,11 +1,11 @@
-//import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import styles from './Layout.module.css';
 
 const Layout: React.FC = () => (
   <>
     <h1 className={styles["title"]}>Odpočítač</h1>
     
-    {/* <Outlet /> */}
+    <Outlet />
    
     <footer> 
       <hr />

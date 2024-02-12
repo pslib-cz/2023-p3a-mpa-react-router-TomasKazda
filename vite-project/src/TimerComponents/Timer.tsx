@@ -1,5 +1,8 @@
 import styles from "./Timer.module.css";
 import { useEffect, useRef } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 export type TimerProps = {
   isRunning: boolean;
@@ -91,6 +94,10 @@ export const Timer: React.FC<TimerProps> = ({
           {(testTime % 60).toString().padStart(2, "0")}
         </span>
       </div>
+
+      <Link to="/settings" className="settings__button">{" "}
+          <FontAwesomeIcon icon={faGear} /> Settings
+      </Link>
     </div>
   );
 };
